@@ -126,7 +126,7 @@ public class SimpleVideoView extends FrameLayout {
             @Override
             public void onClick(View v) {
                 //全屏代码实现。。。
-                Toast.makeText(getContext(), "Here is no fullsrceen funcation", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Here is no full_screen function", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -220,6 +220,15 @@ public class SimpleVideoView extends FrameLayout {
     }
 
     public void onPause() {
-        
+        pauseMediaPlayer();
+        releaseMediaPlayer();// 释放MediaPlayer，同时更新UI状态
+    }
+
+    // 释放MediaPlayer，同时更新UI状态
+    private void releaseMediaPlayer() {
+        mediaPlayer.release();//释放
+        mediaPlayer = null;
+        isPrepared = false;
+        progressBar.setProgress(0);
     }
 }
