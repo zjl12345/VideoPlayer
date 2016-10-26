@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 "D Vitamio VideoView",
                 "E Vitamio MediaController",
                 "F Vitamio Buffer",
+                "G test videoView"
         };
 
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,datas);
@@ -72,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 intent.setClass(this, DemoFactivity.class);
                 startActivity(intent);
                 break;
+            case 6:
+                intent = new Intent(getApplicationContext(),TestActivity.class);
+                startActivity(intent);
         }
     }
 }

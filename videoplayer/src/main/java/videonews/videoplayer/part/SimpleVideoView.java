@@ -21,6 +21,7 @@ import java.io.IOException;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 import videonews.videoplayer.R;
+import videonews.videoplayer.full.VideoViewActivity;
 
 /**
  * @author z_j_l
@@ -57,11 +58,6 @@ public class SimpleVideoView extends FrameLayout {
 
     //进度条更新
     private Handler handler = new Handler() {
-        /**
-         * Subclasses must implement this to receive messages.
-         *
-         * @param msg
-         */
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -125,7 +121,8 @@ public class SimpleVideoView extends FrameLayout {
         btnFullScreen.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //全屏代码实现。。。
+                //TODO 全屏代码实现。。。
+                VideoViewActivity.open(getContext(),videoPath);
                 Toast.makeText(getContext(), "Here is no full_screen function", Toast.LENGTH_SHORT).show();
             }
         });
@@ -158,7 +155,7 @@ public class SimpleVideoView extends FrameLayout {
         surfaceHolder.setFormat(PixelFormat.RGBA_8888);
     }
 
-    //生命周期初始化和暂停
+    //生命周期,初始化和暂停
     public void onResume() {
         initMediaPlayer();//初始化MediaPlayer,设置一系列监听
         prepareMediaPlayer();//准备MediaPlayer，更新UI
