@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
@@ -21,8 +22,19 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
+    testCompile 'junit:junit:4.12'
     compile project(':videoplayer')
     compile project(':vitamio')
+
+    //-----butterknife----------
+    //    compile 'com.jakewharton:butterknife:8.4.0'
+    //    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.jakewharton:butterknife-annotations:8.4.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+
+    //-----------Recyclerview-----------------
+    compile 'com.android.support:recyclerview-v7:24.0.0'
 }
